@@ -6,4 +6,8 @@ class Collection < ApplicationRecord
   def spent
     picks.map(&:price).sum || 0
   end
+
+  def points
+    picks.map(&:points).sum || 0
+  end
 end

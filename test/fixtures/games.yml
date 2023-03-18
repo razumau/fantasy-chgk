@@ -1,12 +1,10 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
+game_in_progress:
   name: game_in_progress
   deadline: 2093-03-04 19:00:22
   teams_limit: 2
   points_limit: 20
 
-two:
+game_ended:
   name: game_ended
   deadline: 2021-03-04 19:00:22
   teams_limit: 3
