@@ -1,13 +1,43 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  city: MyString
-  price: 1
-  point: 1
+good_in_progress:
+  name: good
+  city: Kraków
+  game: game_in_progress
+  price: 15
+  points: 0
 
-two:
-  name: MyString
-  city: MyString
-  price: 1
-  point: 1
+average_in_progress:
+  name: average
+  city: Kraków
+  game: game_in_progress
+  price: 10
+  points: 0
+
+bad_in_progress:
+  name: bad
+  city: Kraków
+  game: game_in_progress
+  price: 5
+  points: 0
+
+one_finished:
+  name: one
+  city: Kwekwe
+  game: game_ended
+  price: 15
+  points: 60
+
+two_finished:
+  name: two
+  city: Kumasi
+  game: game_ended
+  price: 20
+  points: 50
+
+three_finished:
+  name: three
+  city: Kigali
+  game: game_ended
+  price: 10
+  points: 20

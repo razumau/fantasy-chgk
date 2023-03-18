@@ -1,7 +1,7 @@
 class Pick < ApplicationRecord
   belongs_to :collection
   belongs_to :team
-  delegate :game, to: :team
+  delegate :game, to: :collection
 
   validate :player_can_add_one_more_team, :player_has_enough_points, :game_is_active
 
@@ -10,10 +10,12 @@ class Pick < ApplicationRecord
     throw(:abort) if errors.present?
   end
 
-  after_save :deduct_points
+  def price
+    team.price
+  end
 
   def player_has_enough_points
-    unless collection.points + team.price <= game.points_limit
+    unless collection.spent_points + team.price <= game.points_limit
       errors.add(:pick, "Недостаточно очков для этой команды")
     end
   end
@@ -30,17 +32,12 @@ class Pick < ApplicationRecord
     end
   end
 
-  def deduct_points
-    collection.points -= team.price
-    player.save
-  end
-
   private
   def no_teams?
-    player.teams.nil?
+    collection.picks.nil?
   end
 
   def has_empty_slot?
-    player.teams.length < game.teams_limit
+    collection.picks.length < game.teams_limit
   end
 end
